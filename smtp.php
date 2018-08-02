@@ -28,11 +28,11 @@ $password = base64_decode($_POST["password"]);
    
 	try {
 		# Check if connection started
-        if($transport->isStarted == false) {
+        if($transport->isStarted() == false) {
             $transport->start();
         }
 
-		if($transport->isStarted == true) {
+		if($transport->isStarted() == true) {
             $mailer = \Swift_Mailer::newInstance($transport);
 
             # Sending email after checked credentials
